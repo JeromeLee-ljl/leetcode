@@ -9,10 +9,16 @@ class Solution:
         Find two lines, which together with x-axis forms a container, such that the container contains the most water.
         Note: You may not slant the container and n is at least 2.
         """
-
+        max = 0
+        for i in range(len(height) - 1):
+            for j in range(i + 1, len(height)):
+                area = min(height[i], height[j]) * (j - i)
+                if area > max: max = area
+        return max
 
 def _test_maxArea():
-    pass
+    solution = Solution()
+    assert solution.maxArea([1,3,2,1])==3
 
 
 if __name__ == "__main__":
