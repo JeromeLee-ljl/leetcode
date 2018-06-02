@@ -12,7 +12,6 @@ class Solution:
         # return i + 1
 
         left, right = 0, len(nums) - 1
-
         while left <= right:
             center = (left + right) // 2
             if nums[center] >= target:
@@ -20,3 +19,7 @@ class Solution:
             else:
                 left = center + 1
         return left
+
+
+if __name__ == '__main__':
+    print(Solution().searchInsert([1, 1, 2, 3, 4, 4, 5, 6], 1))
