@@ -1,5 +1,5 @@
 class Solution:
-    def isValidSudoku(self, board):
+    def isValidSudoku2(self, board):
         """
         :type board: List[List[str]]
         :rtype: bool
@@ -26,7 +26,7 @@ class Solution:
                         if a != '.': sets.add(a)
         return True
 
-    def isValidSudoku2(self, board):
+    def isValidSudoku(self, board):
         """
         :type board: List[List[str]]
         :rtype: bool
@@ -60,7 +60,7 @@ if __name__ == '__main__':
          [".", ".", ".", "4", "1", "9", ".", ".", "5"],
          [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
 
-    print(Solution().isValidSudoku2(a))
+    print(Solution().isValidSudoku(a))
 
     b = [[".", ".", ".", ".", "5", ".", ".", "1", "."],
          [".", "4", ".", "3", ".", ".", ".", ".", "."],
