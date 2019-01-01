@@ -1,2 +1,2 @@
 # leetcode
-questions on the leetcode with my answers
+questions on the leetcode with my solution
