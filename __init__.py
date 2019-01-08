@@ -9,4 +9,9 @@ def rename():
 
 
 if __name__ == '__main__':
-    pass
+    a = []
+    for i in range(2):
+        b = [i]
+        a.append(b)
+    print(a)
+
