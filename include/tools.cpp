@@ -33,8 +33,8 @@ void print_array(int* array, int length) {
     }
     printf("}\n");
 }
-void print_array(char** array, int length) {
-    printf("{\"%s\"", array[0]);
+void print_array(char* info, char** array, int length) {
+    printf("%s {\"%s\"",info, array[0]);
     for (int i = 1; i < length; i++) {
         printf(", \"%s\"", array[i]);
     }
@@ -52,8 +52,7 @@ void print_arrays(int** arrays, int row, int col) {
 void print_arrays(char*** arrays, int row, int col) {
     printf("{\n");
     for (int i = 0; i < row; i++) {
-        printf("  ");
-        print_array(arrays[i], col);
+        print_array(" ",arrays[i], col);
     }
     printf("}\n");
 }
