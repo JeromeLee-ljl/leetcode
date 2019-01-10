@@ -87,4 +87,22 @@ void select_sort(char* array, int begin, int end) {
     }
 }
 
+int partition(Q_SORT_TYPE array[], int low, int high, int (*compare)(Q_SORT_TYPE, Q_SORT_TYPE)) {
+    Q_SORT_TYPE pivot = array[low];
+    while (low < high) {
+        while (low < high && compare(pivot, array[high]) <= 0) high--;
+        array[low] = array[high];
+        while (low < high && compare(pivot, array[low]) > 0) low++;
+        array[high] = array[low];
+    }
+    array[low] = pivot;
+    return low;
+}
+
+void quick_sort(Q_SORT_TYPE array[], int low, int high, int (*compare)(Q_SORT_TYPE, Q_SORT_TYPE)) {
+    if (low >= high) return;
+    int pivot = partition(array, low, high, compare);
+    quick_sort(array, low, pivot, compare);
+    quick_sort(array, pivot + 1, high, compare);
+}
 
