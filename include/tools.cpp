@@ -87,6 +87,8 @@ void select_sort(char* array, int begin, int end) {
     }
 }
 
+#define Q_SORT_TYPE int
+
 int partition(Q_SORT_TYPE array[], int low, int high, int (*compare)(Q_SORT_TYPE, Q_SORT_TYPE)) {
     Q_SORT_TYPE pivot = array[low];
     while (low < high) {
