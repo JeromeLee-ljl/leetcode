@@ -14,7 +14,7 @@ double myPow(double x, int n) {
     double value = myPow(x, n / 2);
     value *= value;
     return n % 2 ? value * x : value;
-}   
+}
 
 int main(int argc, char const *argv[]) {
     printf("%f\n", myPow(2.00000, -2147483648));

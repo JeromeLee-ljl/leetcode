@@ -34,7 +34,7 @@ void print_array(int* array, int length) {
     printf("}\n");
 }
 void print_array(char* info, char** array, int length) {
-    printf("%s {\"%s\"",info, array[0]);
+    printf("%s {\"%s\"", info, array[0]);
     for (int i = 1; i < length; i++) {
         printf(", \"%s\"", array[i]);
     }
@@ -52,7 +52,7 @@ void print_arrays(int** arrays, int row, int col) {
 void print_arrays(char*** arrays, int row, int col) {
     printf("{\n");
     for (int i = 0; i < row; i++) {
-        print_array(" ",arrays[i], col);
+        print_array(" ", arrays[i], col);
     }
     printf("}\n");
 }
@@ -64,12 +64,12 @@ int compare_str(char* str1, char* str2) {
     }
     if (str1[i] > str2[i]) {
         return 1;
-    } 
+    }
     return -1;
 }
 
 void select_sort(int* array, int begin, int end) {
-    int *i, *j, *min,* array_end = array + end;
+    int *i, *j, *min, *array_end = array + end;
     for (i = array + begin; i < array_end; i++) {
         for (j = i + 1, min = i; j < array_end; j++) {
             if (*j < *min) min = j;
@@ -78,7 +78,7 @@ void select_sort(int* array, int begin, int end) {
     }
 }
 void select_sort(char* array, int begin, int end) {
-    char *i, *j, *min,* array_end = array + end;
+    char *i, *j, *min, *array_end = array + end;
     for (i = array + begin; i < array_end; i++) {
         for (j = i + 1, min = i; j < array_end; j++) {
             if (*j < *min) min = j;
@@ -108,3 +108,23 @@ void quick_sort(Q_SORT_TYPE array[], int low, int high, int (*compare)(Q_SORT_TY
     quick_sort(array, pivot + 1, high, compare);
 }
 
+int combination(int k, int n) {
+    k = n - k < k ? n - k : k;
+    long long res = 1;
+
+    for (int i = n, j = 1; i > n - k || j <= k; i--, j++) {
+        if (i > n - k) res *= i;
+        if (j <= k) res /= j;
+    }
+    return res;
+}
+
+double my_pow(double base, int power) {
+    if (power == 0) return 1;
+    if (power < 0) {
+        return 1 / my_pow(base, -(power + 1)) / base;
+    }
+    double value = my_pow(base, power / 2);
+    value *= value;
+    return power % 2 ? value * base : value;
+}
